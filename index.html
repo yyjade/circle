@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Properties</title>
+    <script>
+        function calcCircumference(radius) {
+            let circumference = 2 * Math.PI * radius;
+            document.getElementById("circumferenceOutput").innerHTML = 
+                "The circumference is " + circumference.toFixed(2);
+        }
+
+        function calcArea(radius) {
+            let area = Math.PI * Math.pow(radius, 2);
+            document.getElementById("areaOutput").innerHTML = 
+                "The area is " + area.toFixed(2);
+        }
+
+        function calculate() {
+            let radius = document.getElementById("radiusInput").value;
+            radius = parseFloat(radius);
+            if (!isNaN(radius) && radius > 0) {
+                calcCircumference(radius);
+                calcArea(radius);
+            } else {
+                alert("Please enter a valid positive number for radius.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Circle Properties Calculator</h2>
+    <label for="radiusInput">Enter Radius: </label>
+    <input type="number" id="radiusInput" step="any">
+    <button onclick="calculate()">Calculate</button>
+
+    <p id="circumferenceOutput"></p>
+    <p id="areaOutput"></p>
+</body>
+</html>
